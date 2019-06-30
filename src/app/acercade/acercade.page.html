@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-button (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title >Jacumo</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content color="primary">
+    <div class="ion-padding">
+        <ion-card  color="secondary">
+            <ion-item  color="secondary">
+               
+                <ion-label><h1> <div class="ion-text-center">
+                    <ion-icon name="happy"></ion-icon>Quienes somos</div></h1></ion-label>
+              </ion-item>
+              
+          
+            <ion-card-content>
+               <h2>nuestro equipo esta compuesto por:</h2> 
+               <ion-item class="activated">
+                 <ion-button color="secondary" (click)="presentActionSheet1()"><ion-icon name="bicycle"></ion-icon>Marcelo Bustos Tapia</ion-button> 
+
+                </ion-item>
+              
+                <ion-item>
+                    <ion-button color="secondary" (click)="presentActionSheet2()"><ion-icon name="musical-notes"></ion-icon>
+                  <ion-label>Leonardo Hernandez Flores</ion-label></ion-button>
+                </ion-item>
+              
+                <ion-item class="activated">
+                    <ion-button color="secondary" (click)="presentActionSheet3()"> 
+                  <ion-icon name="phone-portrait"></ion-icon>
+                  <ion-label>Joseph Jimenez Lopez</ion-label></ion-button>
+                </ion-item>
+            </ion-card-content>
+          </ion-card>
+            
+          <ion-card  color="secondary">
+              <ion-item color="secondary">
+                 
+                  <ion-label><h1> <div class="ion-text-center">
+                      <ion-icon name="list-box"></ion-icon>Califica nuestra app</div></h1></ion-label>
+                </ion-item>
+                
+            
+              <ion-card-content color="secondary">
+                  <h2>selecciona la opcion que mejor represente tu opinion:</h2> 
+                  <ion-grid>
+                      <ion-list>
+                          <ion-radio-group [(ngModel)]="calif" color="primary">
+                              <ion-row>
+                                  <ion-col size="5">
+                                      <ion-item>
+                                          <ion-icon name="star"></ion-icon>
+                                          <ion-radio value="buena" name="calif" checked></ion-radio>
+                                      </ion-item>
+                                  </ion-col>
+                                  <ion-col size="5">
+                                      <ion-item>
+                                          <ion-icon name="star-half"></ion-icon>
+                                          <ion-radio value="regular" name="calif" ></ion-radio>
+                                      </ion-item>
+                                  </ion-col>
+                                  <ion-col size="3">
+                          
+                                  </ion-col>
+                                  <ion-col center text-center>
+                                      <ion-item>
+                                          <ion-icon name="star-outline"></ion-icon>
+                                          <ion-radio value="mala" name="calif"></ion-radio>
+                                      </ion-item>
+                                  </ion-col>
+                                  <ion-col size="3">
+                          
+                                    </ion-col>
+                                    <ion-item center text-center><ion-button (click)=calift()>Calificar</ion-button></ion-item>
+                                </ion-row> 
+                          </ion-radio-group>
+                        </ion-list>
+                      </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          
+    </div>
+  </ion-content>

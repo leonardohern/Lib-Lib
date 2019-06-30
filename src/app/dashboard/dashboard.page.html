@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Nombre" [(ngModel)]="studentName"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Rut" [(ngModel)]="studentAge"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Carrera" [(ngModel)]="studentAddress"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Estado" [(ngModel)]="studentStatus"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="CreateRecord()" [disabled]="!studentName || !studentAge || !studentAddress || !studentStatus">
+          <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+          &nbsp;Ingresar Datos
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+ 
+  <ion-card *ngFor="let item of students">
+    <span *ngIf="!item.isEdit; else elseBlock">
+      <ion-card-header>
+        <ion-card-title>{{item.Name}} - {{item.Age}} IPCHILE</ion-card-title>
+        <ion-card-subtitle>Ramo: {{item.Address}}</ion-card-subtitle>
+        <ion-card-subtitle>Estado: {{item.Status}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+ 
+        <ion-button shape="round" color="secondary" size="small" (click)="EditRecord(item)">
+          <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+ 
+        </ion-button>
+        <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+ 
+        </ion-button>
+      </ion-card-content>
+    </span>
+    <ng-template #elseBlock>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                Editar
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="medium" size="small" (click)="item.isEdit = false">
+                  Cancelar
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="outline" color="success" size="small" (click)="UpdateRecord(item)">
+                  Actualizar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label><strong>Nombre</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Rut</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditAge"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Ramo</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditAddress"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Estado</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditStatus"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ng-template>
+  </ion-card>
+ 
+</ion-content>
+
+
+<ion-footer (click)="logout()">
+  <ion-toolbar color="secondary">
+    <ion-title>Log out</ion-title>
+  </ion-toolbar>
+</ion-footer>

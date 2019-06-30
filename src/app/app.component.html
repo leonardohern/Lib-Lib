@@ -1,3 +1,20 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="Principal">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Jacumo</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item (click)="irahome()">Home</ion-item>
+          <ion-item >Login</ion-item>
+          <ion-item>Registrar</ion-item>
+          <ion-item (click)="iracercade()">Quienes somos</ion-item>
+          <ion-item>cerrar sesion</ion-item>
+          <ion-item (click)="iramenu()">menu</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+<ion-router-outlet id="Principal"></ion-router-outlet>
 </ion-app>
